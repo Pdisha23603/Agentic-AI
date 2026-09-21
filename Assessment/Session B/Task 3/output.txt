@@ -1,0 +1,45 @@
+run : python memory_strategy_agent.py
+
+
+
+
+PS C:\Users\disha\agentic ai\Assessment\Session B\Task 3> python memory_strategy_agent.py 
+======================================================================
+Simulating interactions for user_id = 'user_101'
+======================================================================
+
+Interaction #1
+  Query      : Hi, what are your delivery hours?
+  Strategy   : prompt_template
+  Response   : [Prompt-Template] Thanks for reaching out! Regarding "Hi, what are your delivery hours?" - our standard delivery hours are 9 AM to 11 PM, and you can track your order in real time from the app. Let us know if you need anything else!
+  Memory now : {'interaction_count': 1, 'preferred_cuisine': None, 'last_complaint': None}
+
+Interaction #2
+  Query      : Can you show me the menu for Italian food?
+  Strategy   : rag_lookup
+  Response   : [RAG-Lookup] Searching our live menu database for "Can you show me the menu for Italian food?"... Found matches: Margherita Pizza ($9.99), Chicken Biryani ($11.50), Veggie Sushi Roll ($8.75). Prices and availability reflect the nearest restaurant partner to your location.
+  Memory now : {'interaction_count': 2, 'preferred_cuisine': 'italian', 'last_complaint': None}
+
+Interaction #3
+  Query      : What items and prices do you have for biryani?
+  Strategy   : rag_lookup
+  Response   : [RAG-Lookup] Searching our live menu database for "What items and prices do you have for biryani?"... Found matches: Margherita Pizza ($9.99), Chicken Biryani ($11.50), Veggie Sushi Roll ($8.75). Prices and availability reflect the nearest restaurant partner to your location.
+  Memory now : {'interaction_count': 3, 'preferred_cuisine': 'biryani', 'last_complaint': None}
+
+Interaction #4
+  Query      : My order arrived cold and late, this is terrible!
+  Strategy   : fine_tuned
+  Response   : [Fine-Tuned-Model] I'm really sorry about the trouble with "My order arrived cold and late, this is terrible!". Based on your order history, this looks similar to a past issue, so I've escalated it to priority support and issued a goodwill credit to your account. You should see it reflected within 24 hours.
+  Memory now : {'interaction_count': 4, 'preferred_cuisine': 'biryani', 'last_complaint': 'My order arrived cold and late, this is terrible!'}
+
+Interaction #5
+  Query      : This is the second time my food arrived cold, I want a refund!
+  Strategy   : fine_tuned
+  Response   : [Fine-Tuned-Model] I'm really sorry about the trouble with "This is the second time my food arrived cold, I want a refund!". Based on your order history, this looks similar to a past issue, so I've escalated it to priority support and issued a goodwill credit to your account. You should see it reflected within 24 hours.
+  Memory now : {'interaction_count': 5, 'preferred_cuisine': 'biryani', 'last_complaint': 'This is the second time my food arrived cold, I want a refund!'}
+
+======================================================================
+Final memory state for all users:
+{'user_101': {'interaction_count': 5, 'preferred_cuisine': 'biryani', 'last_complaint': 'This is the second time my food arrived cold, I want a refund!'}}
+PS C:\Users\disha\agentic ai\Assessment\Session B\Task 3> 
+

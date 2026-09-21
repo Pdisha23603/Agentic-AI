@@ -1,0 +1,13 @@
+dish,restaurant,category,description,price,diet,spicy,available
+Paneer Tikka,Spice Garden,Indian,Grilled paneer with Indian spices,220,vegetarian,yes,yes
+Masala Dosa,South Express,South Indian,Crispy dosa with potato masala,150,vegetarian,no,yes
+Veg Biryani,Biryani House,Indian,Aromatic rice with vegetables and spices,200,vegetarian,yes,yes
+Chicken Biryani,Biryani House,Indian,Chicken cooked with aromatic basmati rice,280,non-vegetarian,yes,yes
+Margherita Pizza,Pizza Corner,Pizza,Classic pizza with tomato and mozzarella,250,vegetarian,no,yes
+Veg Burger,Burger Point,Burger,Veggie patty with fresh vegetables,180,vegetarian,no,yes
+Chicken Burger,Burger Point,Burger,Chicken patty with fresh vegetables,220,non-vegetarian,no,yes
+Paneer Butter Masala,Spice Garden,Indian,Paneer cooked in creamy tomato gravy,240,vegetarian,no,yes
+Chole Bhature,Delhi Kitchen,North Indian,Spicy chickpeas with fried bread,170,vegetarian,yes,no
+Veg Hakka Noodles,Chinese Wok,Chinese,Stir fried noodles with vegetables,190,vegetarian,yes,yes
+Chicken Noodles,Chinese Wok,Chinese,Stir fried noodles with chicken,230,non-vegetarian,yes,yes
+Idli Sambar,South Express,South Indian,Soft idli served with sambar,120,vegetarian,no,yes

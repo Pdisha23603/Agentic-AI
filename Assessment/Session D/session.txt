@@ -1,0 +1,40 @@
+🎯 Quick Commands:
+
+# Run with all 4 test scenarios
+python3 react_agent_fixed.py
+
+# Test single query
+python3 << 'EOF'
+from react_agent_fixed import ReActAgent
+agent = ReActAgent()
+agent.process_query("My order ORD001 never arrived!")
+EOF
+
+# Verify installation
+python3 << 'EOF'
+from react_agent_fixed import extract_order_id, extract_intent
+assert extract_order_id("My order ORD001") == "ORD001"
+assert extract_intent("refund") == "refund_check"
+print("All checks passed!")
+EOF
+
+
+
+
+
+
+
+python3 react_agent_fixed.py🚀 Run It Now:c:\Users\disha\Downloads\README (1).md c:\Users\disha\Downloads\react_agent_fixed.py c:\Users\disha\Downloads\react_agent.py c:\Users\disha\Downloads\QUICK_START.md c:\Users\disha\Downloads\BUG_REPORT.md c:\Users\disha\Downloads\PROJECT_SUMMARY.md c:\Users\disha\Downloads\START_HERE.txt
+
+
+
+
+📊 Test Results:
+Scenario 1: Delivered order complaint  → PASS ✅
+Scenario 2: Pending order refund      → PASS ✅
+Scenario 3: Cancelled order           → PASS ✅
+Scenario 4: Non-existent order (error)→ PASS ✅
+
+Overall: 100% tests passing
+Quality: Production-ready
+Status: Ready to deploy

@@ -1,0 +1,38 @@
+
+1
+SCENARIO
+You are building a chatbot for a food delivery platform that must recommend dishes to
+users based on their dietary restrictions, past order history, and real-time menu
+availability from partnered restaurants.
+Question: Your team is debating whether to use prompt engineering, RAG, or fine-tuning to
+power this chatbot. The menu data updates daily and the user base is diverse. Evaluate all three
+approaches against this use-case and justify which combination — or single approach — you
+would recommend, and why the others fall short for this specific problem
+
+ANS:
+
+| Approach          | How it works here                                                         | Advantages                                                     | Problem for this scenario                                              |
+| ------------------| ------------------------------------------------------------------------- | -------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| Prompt Engineerin | Give the LLM instructions such as dietary rules and recommendation format | Easy, cheap, fast to develop                                   | It doesn't automatically know today's menu or availability             |
+| RAG               | Retrieve current restaurant/menu data, then give it to the LLM            | Handles daily updates, current availability, dietary filtering | Requires building a retrieval/database pipeline                        |
+| Fine-tuning       | Train the model on examples of food recommendations                       | Can improve consistent style and specialized behavior          | Expensive to retrain when menus change; training data can become stale |
+
+
+
+architecture diagram : 
+
+User
+  ↓
+Chatbot
+  ↓
+Prompt Engineering
+  ↓
+Retrieve current menu + user history
+  ↓
+RAG
+  ↓
+LLM
+  ↓
+Personalized recommendation
+
+

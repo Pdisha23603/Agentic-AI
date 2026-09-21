@@ -1,0 +1,33 @@
+run : python mcp_db_guard_demo.py
+
+
+
+
+
+
+PS C:\Users\disha\agentic ai\Assessment\Session A\task5> python mcp_db_guard_demo.py
+== list_tables() ==
+['orders', 'delivery_partner_locations']
+
+== describe_table('orders') ==
+{'table': 'orders', 'columns': {'order_id': 'public', 'restaurant_id': 'public', 'status': 'public', 'created_at': 'public', 'delivery_partner_id': 'public', 'customer_id': 'public', 'customer_phone': 'pii', 'payment_token': 'financial'}}
+
+== Support agent question: why is order 48213 delayed, and where is it? ==
+Query: SELECT o.order_id, o.status, o.created_at, d.latitude, d.longitude, d.updated_at
+        FROM orders o
+        JOIN delivery_partner_locations d ON o.order_id = d.order_id
+        WHERE o.order_id = 48213
+Result: {'columns': ['order_id', 'status', 'created_at', 'latitude', 'longitude', 'updated_at'], 'rows': [(48213, 'delayed', '2026-09-17T18:40:00', 12.9716, 77.5946, '2026-09-17T18:55:00')]}
+
+== Attempt to also pull customer_phone (should be blocked) ==
+Query: SELECT order_id, status, customer_phone FROM orders WHERE order_id = 48213
+Result: {'error': "query references restricted column(s): ['customer_phone']. Remove them and retry."}
+
+== Attempt SELECT * (should be blocked) ==
+Query: SELECT * FROM orders WHERE order_id = 48213
+Result: {'error': 'SELECT * is not permitted -- name columns explicitly'}
+
+== Attempt a write statement (should be blocked) ==
+Query: UPDATE orders SET status = 'delivered' WHERE order_id = 48213
+Result: {'error': 'only SELECT statements are permitted'}
+PS C:\Users\disha\agentic ai\Assessment\Session A\task5> 

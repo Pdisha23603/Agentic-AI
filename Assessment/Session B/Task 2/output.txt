@@ -1,0 +1,275 @@
+run: python test_agent_advanced.py
+
+
+
+PS C:\Users\disha\agentic ai\Assessment\Session B\Task 2> python test_agent_advanced.py
+   
+================================================================================
+FOOD DELIVERY AGENT - ADVANCED TEST SUITE
+================================================================================
+
+================================================================================
+TEST 1: Basic Agent Usage
+================================================================================
+
+Q: Is Burger Barn open?
+A: ✓ Burger Barn is OPEN
+  Hours: 11 AM - 10 PM
+  Rating: 4.5⭐
+
+Q: Track order ORD002
+A: 📍 Order ORD002
+  Status: Out For Delivery
+  ETA: 12:40 PM (~7 min)
+  Distance: 1.2 km
+
+Session Queries: 2
+
+✓ Basic Usage: PASSED
+
+================================================================================
+TEST 2: Direct Tool Function Calls
+================================================================================
+
+1. Direct check_restaurant_status:
+✓ Pizza Palace is OPEN
+  Hours: 10 AM - 11 PM
+  Rating: 4.8⭐
+
+2. Direct get_estimated_delivery_time:
+📍 Order ORD001
+  Status: Preparing
+  ETA: 12:51 PM (~18 min)
+  Distance: 2.5 km
+
+3. Direct apply_discount:
+✓ Discount Applied to Order ORD002
+  Reason: Quality issue refund
+  Discount: 20% ($10.00)
+  Original: $50.00 → New Total: $40.00
+
+4. Direct file_complaint:
+✓ Complaint Filed Successfully
+  Ticket ID: TKT003_123307
+  Order: ORD003
+  Issue: Food was too spicy
+  Status: Under Investigation
+  Expected Resolution: 24-48 hours
+
+✓ Direct Tool Calls: PASSED
+
+================================================================================
+TEST 3: Multiple Agents with Different Names
+================================================================================
+
+[PizzaBot] Q: Is Pizza Palace open?
+[PizzaBot] A: ✓ Pizza Palace is OPEN
+  Hours: 10 AM - 11 PM
+  Rating: 4.8⭐...
+
+[SushiBot] Q: When will ORD003 arrive?
+[SushiBot] A: 📍 Order ORD003
+  Status: Preparing
+  ETA: 12:58 PM (~25 min)
+  Distance: 4.0 km...
+
+[TacoBot] Q: I need a discount for ORD004 due to missing items
+[TacoBot] A: ✓ Discount Applied to Order ORD004
+  Reason: Missing item compensation
+  Discoun...
+
+✓ Multiple Agents: PASSED
+
+================================================================================
+TEST 4: Error Handling & Edge Cases
+================================================================================
+
+1. Query: Random gibberish query that makes no sense
+   Result: ❌ I couldn't understand your request. Try:
+  • 'Is [restaurant] open?'
+  • 'Where's my order [ORD###...
+   Status: ✓ HANDLED
+
+3. Query: Restaurant xyz123 that doesn't exist
+   Result: ✗ Restaurant 'Restaurant xyz123 that doesn't exist' not found in our system.
+  Available: Pizza Pala...
+   Status: ✓ HANDLED
+
+4. Query: Discount reason that doesn't exist
+   Result: ✓ Discount Applied to Order ORD001
+  Reason: Promotional discount
+  Discount: 10% ($5.00)
+  Original...
+   Status: ✓ PROCESSED
+
+✓ Error Handling: PASSED
+
+================================================================================
+TEST 5: Session Analysis & Statistics
+================================================================================
+
+Total Queries: 6
+
+Tools Used:
+  • apply_discount: 1 call(s)
+  • check_restaurant_status: 2 call(s)
+  • file_complaint: 1 call(s)
+  • get_estimated_delivery_time: 2 call(s)
+
+First Query: Is Sushi Spot open?
+Last Query: When will ORD004 be delivered?
+
+✓ Session Analysis: PASSED
+
+================================================================================
+TEST 6: MCP Schema Inspection
+================================================================================
+
+Total Schemas: 4
+
+Tool: check_restaurant_status
+  Description: Check if a restaurant is currently open and get its operating hours and rating
+  Required Parameters: name
+    - name: The name of the restaurant to check (e.g., 'Pizza Palace', 'Sushi Spot')
+
+Tool: get_estimated_delivery_time
+  Description: Get the estimated delivery time and current status for an order
+  Required Parameters: order_id
+    - order_id: The order ID (e.g., 'ORD001', 'ORD002')
+
+Tool: apply_discount
+  Description: Apply a discount to an order for reasons like late delivery, quality issues, or missing items
+  Required Parameters: order_id, reason
+    - order_id: The order ID to apply discount to
+    - reason: Reason for discount: 'late delivery', 'quality issue', 'missing item', 'wrong order', or 'promotional'
+
+Tool: file_complaint
+  Description: File a formal complaint about an order issue and receive a ticket ID for tracking
+  Required Parameters: order_id, issue
+    - order_id: The order ID for the complaint
+    - issue: Detailed description of the issue experienced
+
+✓ Schema Inspection: PASSED
+
+================================================================================
+TEST 7: Batch Processing
+================================================================================
+
+Processing 6 queries...
+✓ Processed 6 queries successfully
+✓ Successful Results: 4/6
+  Success Rate: 66.7%
+
+✓ Batch Processing: PASSED
+
+================================================================================
+TEST 8: Advanced Custom Queries
+================================================================================
+
+Query 1: Hi, I ordered from Pizza Palace yesterday, order ORD001
+Response: ❌ I couldn't understand your request. Try:
+  • 'Is [restaurant] open?'
+  • 'Where's my order [ORD###]?'
+  • 'I want a di...
+
+Query 2: My food from Curry House came cold, need to file a complaint with order ORD003
+Response: ✓ Complaint Filed Successfully
+  Ticket ID: TKT003_123307
+  Order: ORD003
+  Issue: with order ORD003
+  Status: Under Inv...
+
+Query 3: Order ORD002 hasn't arrived yet and I've been waiting, can I get some compensation?
+Response: ✓ Discount Applied to Order ORD002
+  Reason: Promotional discount
+  Discount: 10% ($5.00)
+  Original: $50.00 → New Total...
+
+Query 4: Is Burger Barn still open? I want to place an order
+Response: ✓ Burger Barn is OPEN
+  Hours: 11 AM - 10 PM
+  Rating: 4.5⭐...
+
+Query 5: The item I ordered from Taco Town was missing, can you help me? Order ORD004
+Response: ✓ Discount Applied to Order ORD004
+  Reason: Missing item compensation
+  Discount: 25% ($12.50)
+  Original: $50.00 → New...
+
+================================================================================
+SESSION SUMMARY
+================================================================================
+Agent: AdvancedBot
+Total Queries: 5
+Successful: 4 | Failed: 1
+Success Rate: 80.0%
+
+Tools Used:
+  • file_complaint: 1 call(s)
+  • apply_discount: 2 call(s)
+  • check_restaurant_status: 1 call(s)
+
+--------------------------------------------------------------------------------
+
+[Query #1]
+Customer: Hi, I ordered from Pizza Palace yesterday, order ORD001
+Tool Called: NO_MATCH
+Response:
+❌ I couldn't understand your request. Try:
+  • 'Is [restaurant] open?'
+  • 'Where's my order [ORD###]?'
+  • 'I want a discount for [reason]'
+  • 'I have a complaint about order [ORD###]'
+--------------------------------------------------------------------------------
+
+[Query #2]
+Customer: My food from Curry House came cold, need to file a complaint with order ORD003
+Tool Called: file_complaint
+Response:
+✓ Complaint Filed Successfully
+  Ticket ID: TKT003_123307
+  Order: ORD003
+  Issue: with order ORD003
+  Status: Under Investigation
+  Expected Resolution: 24-48 hours
+--------------------------------------------------------------------------------
+
+[Query #3]
+Customer: Order ORD002 hasn't arrived yet and I've been waiting, can I get some compensation?
+Tool Called: apply_discount
+Response:
+✓ Discount Applied to Order ORD002
+  Reason: Promotional discount
+  Discount: 10% ($5.00)
+  Original: $50.00 → New Total: $45.00
+--------------------------------------------------------------------------------
+
+[Query #4]
+Customer: Is Burger Barn still open? I want to place an order
+Tool Called: check_restaurant_status
+Response:
+✓ Burger Barn is OPEN
+  Hours: 11 AM - 10 PM
+  Rating: 4.5⭐
+--------------------------------------------------------------------------------
+
+[Query #5]
+Customer: The item I ordered from Taco Town was missing, can you help me? Order ORD004
+Tool Called: apply_discount
+Response:
+✓ Discount Applied to Order ORD004
+  Reason: Missing item compensation
+  Discount: 25% ($12.50)
+  Original: $50.00 → New Total: $37.50
+--------------------------------------------------------------------------------
+
+✓ Advanced Queries: PASSED
+
+================================================================================
+TEST SUMMARY
+================================================================================
+Tests Completed: 8/8
+Success Rate: 100.0%
+================================================================================
+
+PS C:\Users\disha\agentic ai\Assessment\Session B\Task 2> 

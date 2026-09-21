@@ -1,0 +1,73 @@
+run : python order_lifecycle_system.py
+
+
+
+PS C:\Users\disha\agentic ai\Assessment\Session B\Task 4> python order_lifecycle_system.py 
+SCENARIO 1: Smooth delivery
+
+======================================================================
+LIFECYCLE REPORT — Order 2bbace90
+======================================================================
+
+[1] ORDER SUMMARY
+    order_id          : 2bbace90
+    customer_id       : cust_501
+    items             : ['Pizza', 'Pasta']
+    total_price       : 20.24
+    delivery_address  : 12 Riverside Ave
+    cuisine           : Italian
+
+[2] DISPATCH DETAILS
+    order_id          : 2bbace90
+    assigned_partner  : Raj K.
+    vehicle           : bike
+    partner_rating    : 4.8
+    eta_minutes       : 43
+
+[3] SUPPORT / FEEDBACK HANDLING
+    feedback          : The food arrived fast and was delicious, thanks!
+    classification    : positive
+    technique_selected: prompt
+    response          : [Prompt] Thanks so much for the feedback: "The food arrived fast and was delicious, thanks!" We're glad you enjoyed your order!
+
+Total simulated processing time: 96.35 ms
+======================================================================
+
+
+SCENARIO 2: Delivery complaint / escalation
+
+======================================================================
+LIFECYCLE REPORT — Order 052f5e68
+======================================================================
+
+[1] ORDER SUMMARY
+    order_id          : 052f5e68
+    customer_id       : cust_502
+    items             : ['Sushi', 'Tacos']
+    total_price       : 16.25
+    delivery_address  : 88 Oak Street
+    cuisine           : Fusion
+
+[2] DISPATCH DETAILS
+    order_id          : 052f5e68
+    assigned_partner  : Raj K.
+    vehicle           : bike
+    partner_rating    : 4.8
+    eta_minutes       : 38
+
+[3] SUPPORT / FEEDBACK HANDLING
+    feedback          : This is unacceptable, my order arrived cold again and I want a refund!
+    classification    : escalate
+    technique_selected: fine_tuned
+    response          : [Fine-Tuned-Model] We sincerely apologize for "This is unacceptable, my order arrived cold again and I want a refund!". This has been escalated to a senior support specialist and a full refund has been issued to your account. 
+
+Total simulated processing time: 96.77 ms
+======================================================================
+
+
+######################################################################
+TECHNIQUE COMPARISON ACROSS SCENARIOS
+######################################################################
+Scenario 1 -> classification: positive   | technique: prompt
+Scenario 2 -> classification: escalate   | technique: fine_tuned
+PS C:\Users\disha\agentic ai\Assessment\Session B\Task 4> 

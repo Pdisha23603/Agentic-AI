@@ -1,0 +1,29 @@
+run : python ai_technique_decision_engine.py
+
+
+
+
+
+PS C:\Users\disha\agentic ai\Assessment\Session B> python ai_technique_decision_engine.py 
+Scenario: Real-time menu recommendations
+  Inputs        : {'update_frequency': 'high', 'data_in_external_docs': 'yes', 'needs_custom_behaviour': 'no', 'latency_budget': 'low'}
+  Technique     : RAG
+  Justification : Since the relevant knowledge lives in external documents that change often, retrieval-augmented generation can pull the latest content at query time. This avoids the cost and delay of continuously retraining a model.
+--------------------------------------------------------------------------------
+Scenario: Complaint categorisation
+  Inputs        : {'update_frequency': 'low', 'data_in_external_docs': 'no', 'needs_custom_behaviour': 'yes', 'latency_budget': 'high'}
+  Technique     : Fine-Tuning
+  Justification : The required behaviour is highly custom and the underlying knowledge rarely changes, so training it directly into the model is worthwhile. Because the latency budget is relaxed, the upfront training cost is an acceptable trade-off for consistent, specialised outputs.
+--------------------------------------------------------------------------------
+Scenario: Order confirmation message generation
+  Inputs        : {'update_frequency': 'low', 'data_in_external_docs': 'no', 'needs_custom_behaviour': 'no', 'latency_budget': 'low'}
+  Technique     : Prompt Engineering
+  Justification : The task does not rely on external knowledge or specialised behaviour, and requirements are stable, so a well-crafted prompt on a general-purpose model is enough. This avoids unnecessary infrastructure and training costs.
+--------------------------------------------------------------------------------
+Scenario: Domain-specific FAQ answering
+  Inputs        : {'update_frequency': 'high', 'data_in_external_docs': 'yes', 'needs_custom_behaviour': 'no', 'latency_budget': 'high'}
+  Technique     : RAG
+  Justification : Since the relevant knowledge lives in external documents that change often, retrieval-augmented generation can pull the latest content at query time. This avoids the cost and delay of continuously retraining a model.
+--------------------------------------------------------------------------------
+PS C:\Users\disha\agentic ai\Assessment\Session B> 
+

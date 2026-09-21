@@ -1,0 +1,161 @@
+run : python food_delivery_assistant.py
+
+
+PS C:\Users\disha\agentic ai\Assessment\Session C> python food_delivery_assistant.py
+======================================================================
+AVAILABLE TOOLS (MCP-style schemas)
+======================================================================
+
+Tool: place_order
+  Description: Places a new food order for the customer and returns an order confirmation.
+  Parameters:
+    - items: list[str] - menu items to order (e.g. ['pizza', 'pasta'])
+    - cuisine: str - cuisine type of the order (e.g. 'italian')
+
+Tool: track_order
+  Description: Looks up the live status and ETA of an existing order.
+  Parameters:
+    - order_id: str - the ID of the order to track
+
+Tool: file_complaint
+  Description: Files a customer complaint about an order and classifies its severity.
+  Parameters:
+    - issue_text: str - free-text description of the problem
+
+Tool: get_recommendations
+  Description: Returns personalised menu recommendations based on the customer's preferred cuisine and history.
+  Parameters:
+    - preferred_cuisine: str (optional) - cuisine to base recommendations on
+
+======================================================================
+
+============================================
+  FOOD DELIVERY ASSISTANT
+============================================
+1. Place Order
+2. Track Order
+3. File Complaint
+4. Get Personalised Recommendations
+5. Exit
+============================================
+
+Choose an option (1-5): 1
+Enter items to order (comma-separated, e.g. pizza,pasta): pizza
+Enter cuisine type (e.g. italian): indian
+
+  [Tool called]  place_order({'items': ['pizza'], 'cuisine': 'indian'})
+  [Strategy]     prompt
+  [Result]       {'order_id': 'a31dddda', 'items': ['pizza'], 'cuisine': 'indian', 'total_price': 9.99, 'status': 'placed'}  
+
+============================================
+  FOOD DELIVERY ASSISTANT
+============================================
+1. Place Order
+2. Track Order
+3. File Complaint
+4. Get Personalised Recommendations
+5. Exit
+============================================
+
+Choose an option (1-5): 2
+Enter order ID to track: ^V
+
+  [Tool called]  track_order({'order_id': '\x16'})
+  [Strategy]     rag
+  [Result]       {'order_id': '\x16', 'status': 'Delivered', 'eta_minutes': 14}
+
+============================================
+  FOOD DELIVERY ASSISTANT
+============================================
+1. Place Order
+2. Track Order
+3. File Complaint
+4. Get Personalised Recommendations
+5. Exit
+============================================
+
+Choose an option (1-5): 2 
+Enter order ID to track: a31dddda
+
+  [Tool called]  track_order({'order_id': 'a31dddda'})
+  [Strategy]     rag
+  [Result]       {'order_id': 'a31dddda', 'status': 'Awaiting pickup', 'eta_minutes': 8}
+
+============================================
+  FOOD DELIVERY ASSISTANT
+============================================
+1. Place Order
+2. Track Order
+3. File Complaint
+4. Get Personalised Recommendations
+5. Exit
+============================================
+
+Choose an option (1-5): 3
+Describe your issue: nothing
+
+  [Tool called]  file_complaint({'issue_text': 'nothing'})
+  [Strategy]     rag
+  [Result]       {'complaint_id': 'c6f568ef', 'issue': 'nothing', 'severity': 'low'}
+
+============================================
+  FOOD DELIVERY ASSISTANT
+============================================
+1. Place Order
+2. Track Order
+3. File Complaint
+4. Get Personalised Recommendations
+5. Exit
+============================================
+
+Choose an option (1-5): 4
+Preferred cuisine [indian] (press Enter to keep, or type new): 
+
+  [Tool called]  get_recommendations({'preferred_cuisine': 'indian'})
+  [Strategy]     rag
+  [Result]       {'preferred_cuisine': 'indian', 'recommendations': ['biryani', 'curry']}
+
+============================================
+  FOOD DELIVERY ASSISTANT
+============================================
+1. Place Order
+2. Track Order
+3. File Complaint
+4. Get Personalised Recommendations
+5. Exit
+============================================
+
+Choose an option (1-5): 5
+
+######################################################################
+FULL SESSION REPORT
+######################################################################
+
+Actions taken (in order):
+  Step 1: action='place_order' tool='place_order' strategy='prompt'
+           args={'items': ['pizza'], 'cuisine': 'indian'}
+           result={'order_id': 'a31dddda', 'items': ['pizza'], 'cuisine': 'indian', 'total_price': 9.99, 'status': 'placed'} 
+  Step 2: action='track_order' tool='track_order' strategy='rag'
+           args={'order_id': '\x16'}
+           result={'order_id': '\x16', 'status': 'Delivered', 'eta_minutes': 14}
+  Step 3: action='track_order' tool='track_order' strategy='rag'
+           args={'order_id': 'a31dddda'}
+           result={'order_id': 'a31dddda', 'status': 'Awaiting pickup', 'eta_minutes': 8}
+  Step 4: action='file_complaint' tool='file_complaint' strategy='rag'
+           args={'issue_text': 'nothing'}
+           result={'complaint_id': 'c6f568ef', 'issue': 'nothing', 'severity': 'low'}
+  Step 5: action='get_recommendations' tool='get_recommendations' strategy='rag'
+           args={'preferred_cuisine': 'indian'}
+           result={'preferred_cuisine': 'indian', 'recommendations': ['biryani', 'curry']}
+
+Final session_memory state:
+  orders_placed       : 1
+  complaints_filed    : 1
+  preferred_cuisine   : indian
+  interaction_count   : 5
+
+######################################################################
+
+Session ended. Thanks for using the Food Delivery Assistant!
+PS C:\Users\disha\agentic ai\Assessment\Session C> 
+

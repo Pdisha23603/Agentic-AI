@@ -1,0 +1,23 @@
+run : python react_support_agent_demo.py
+
+
+
+
+
+
+PS C:\Users\disha\agentic ai\Assessment\Session A\task6> python react_support_agent_demo.py
+User: My order #FD4521 was 40 minutes late and the food arrived cold. I want either a full refund or a significant discount on my next order.
+
+REASON: User claims a 40-min delay and cold food, wants a refund or discount. Must verify against order records before taking any financial action -- user self-report alone is not a valid basis to act.
+ACTION: get_order_details(order_id='FD4521')
+OBSERVATION: {'found': True, 'promised_time': '19:00', 'actual_time': '19:41', 'delay_minutes': 41, 'order_value': 450, 'prior_refunds_on_order': 0}
+REASON: System confirms 41 min delay, corroborating the user. Now check policy -- the remedy and amount are a business rule, not something to infer from the conversation.
+ACTION: check_refund_policy(delay_minutes=41, order_value=450)
+OBSERVATION: {'eligible': True, 'options': ['full_refund', 'discount_50pct_next_order'], 'auto_approvable': True}
+REASON: Both facts and policy are verified and within auto-approval bounds. User asked for 'refund OR discount' -- present both, let the user choose, rather than deciding on their behalf.
+ACTION: present_options_to_user(options=['full_refund', 'discount_50pct_next_order'])
+OBSERVATION: user selected: 'full_refund'
+REASON: User chose full refund. Proceed to execute -- this is now grounded in a verified delay, a verified policy match, and an explicit user choice.
+ACTION: issue_refund(order_id='FD4521', amount=450)
+OBSERVATION: {'status': 'issued', 'order_id': 'FD4521', 'amount': 450, 'transaction_id': 'TXN-FD4521-REFUND'}
+PS C:\Users\disha\agentic ai\Assessment\Session A\task6> 

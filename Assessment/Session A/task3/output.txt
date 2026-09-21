@@ -1,0 +1,20 @@
+run : python complaint_classifier_demo.py
+
+======================================================================
+COMPLAINT CLASSIFIER DEMO: FEW-SHOT REMEDY FOR RARE CATEGORIES
+======================================================================
+Mode: Simulation Mode (Offline / No API Key required)
+======================================================================
+
+[Input Ticket]:
+"Delivery partner was rude and impatient during a religious event I was observing at home, made a sarcastic remark about the delay it caused him."
+
+----------------------------------------------------------------------
+1. Baseline (mimics fine-tuned model with fixed 5-class vocabulary):
+   -> late_delivery (Misclassified: forced into common categories)
+   [Why: Model forces rare issue into existing bucket 'late_delivery' due to mention of delay]
+
+2. Few-shot Prompted (remedy for rare-category blind spot):
+   -> conduct_cultural_insensitivity
+   [Why: Exemplars guide model to identify the novel 'conduct_cultural_insensitivity' class]
+======================================================================

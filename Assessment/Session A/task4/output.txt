@@ -1,0 +1,21 @@
+run : python agent_loop_demo.py
+
+
+
+
+
+PS C:\Users\disha\agentic ai\Assessment\Session A\task4> python agent_loop_demo.py 
+User message: Order 2 portions of Masala Dosa from Saravana Bhavan for delivery at 7 PM tonight.
+
+PERCEIVE: parsed order -> 2x Masala Dosa from Saravana Bhavan at 19:00
+ACT: check_restaurant_availability -> {'available': False, 'reason': 'slot_unavailable', 'next_open_slot': '19:30'}
+THINK: restaurant unavailable at requested time. Nearest open slot is 19:30. This changes what the user asked for, so surface it instead of silently substituting.
+ACT: ask_user("Saravana Bhavan isn't taking orders for 7 PM. The next available slot is 19:30 -- shall I book that instead, or would you like a different restaurant?")
+
+--- Simulating the user accepting the fallback slot ---
+
+ACT: check_restaurant_availability -> {'available': True, 'branch': 'Saravana Bhavan - MG Road'}
+ACT: check_item_availability -> {'available': True}
+ACT: estimate_delivery_time -> {'eta': '19:30', 'feasible': True}
+ACT: place_order -> {'status': 'confirmed', 'restaurant': 'Saravana Bhavan', 'items': {'Masala Dosa': 2}, 'time': '19:30'}   
+PS C:\Users\disha\agentic ai\Assessment\Session A\task4> 
