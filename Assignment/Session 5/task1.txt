@@ -1,0 +1,31 @@
+Task 1. LangChain Agent Workflow Diagram (Cheapest Flight Ahmedabad → Mumbai)
+Explanation
+
+A LangChain agent receives the user's request, understands it with an LLM, decides which tool to use, calls the flight search tool, and returns the result.
+
+Example Flow
+
+Step
+1. User Input
+
+	User asks for the cheapest Ahmedabad → Mumbai flight.
+
+
+2. LLM Understands
+
+	Agent understands source, destination, and goal.
+
+
+3. Tool Selection
+
+	LangChain selects the Flight Search Tool.
+
+
+4. Tool Call
+
+	Tool searches airline information.
+
+
+5. Final Response
+
+	Agent returns the cheapest flight with details.

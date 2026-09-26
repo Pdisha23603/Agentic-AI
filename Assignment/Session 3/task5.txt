@@ -1,0 +1,10 @@
+Task 5. Real Use Cases of Memory in LLM-Powered Apps
+Answer
+1. Short-Term Memory
+WhatsApp AI Chatbot: The chatbot remembers the last few messages so it can answer follow-up questions without asking the user to repeat information.
+
+2. Long-Term Memory
+Spotify: Spotify remembers every song you have listened to over time and recommends playlists based on your listening history.
+
+3. Contextual Memory
+Zomato: Zomato remembers that you ordered pizza yesterday and suggests similar restaurants or special pizza offers when you open the app today.

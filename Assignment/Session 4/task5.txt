@@ -1,0 +1,15 @@
+Task 5. Decompose "Booking a Movie Ticket" into Agent Steps
+
+# -------- MOVIE BOOKING AGENT (PSEUDOCODE) --------
+
+# Step 1: Get User Input
+# Ask the user for movie name, city, date, and number of tickets.
+
+# Step 2: Check Showtimes
+# Search available theatres and show timings for the selected movie.
+
+# Step 3: Reserve Seats
+# Display available seats and reserve the seats selected by the user.
+
+# Step 4: Confirm Booking
+# Calculate total amount, confirm payment, and generate the booking confirmation.

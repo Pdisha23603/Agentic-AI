@@ -1,0 +1,3 @@
+Hello from the MCP Music Server!
+This is a sample text file stored on the server filesystem.
+Session 18 - Multi-Client Protocol File Server Demonstration.

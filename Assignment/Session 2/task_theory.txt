@@ -1,0 +1,21 @@
+
+
+Task 1. Python Function perceive_input()
+The perceive_input() function acts as the Perceive stage of an AI agent. It reads the user's message, identifies the intent (what the user wants to do), and extracts important keywords like app names.
+
+Task 2. Python Function decide_next_action()
+This is the Think (Reasoning) stage. The function checks the user's intent and app, then decides what action should happen next.
+
+Task 3. Python Function execute_action() (Perceive → Think → Act Loop)
+This is the Act stage. The function performs a mock action by printing a response.
+
+Task 4. Mapping the Loop to an LLM-Based Agent (3–5 Lines)
+In an LLM-based agent, perceive_input() would be replaced by GPT, which understands the user's message using natural language instead of simple keywords. decide_next_action() would use GPT to reason, plan, and select the best tool or API for the user's goal. execute_action() would call real services such as Spotify, YouTube, or BookMyShow APIs and return live results. The LLM agent can also remember context, ask follow-up questions, and complete multiple steps automatically.
+
+LLM-Based Agent
+perceive_input() : GPT understands natural language and extracts user intent automatically.
+decide_next_action() : GPT reasons and plans which tool or action should be used next.
+execute_action() : GPT calls APIs or external tools and generates a final response for the user.
+
+
+

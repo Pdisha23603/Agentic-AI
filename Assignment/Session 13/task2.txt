@@ -1,0 +1,16 @@
+Step	Description
+
+
+1 Log in to Zapier.
+2 Create a new Zap.
+3 Select Gmail as the Trigger App.
+4 Choose Trigger Event: New Email Matching Search.
+5 Search Filter: subject:Assignment.
+6 Select Google Drive as the Action App.
+7 Choose Action Event: Upload File.
+8 Select the destination folder in Google Drive.
+9 Turn ON the Zap
+
+Result
+
+Whenever an email with subject Assignment arrives, Zapier automatically uploads its attachment to Google Drive.

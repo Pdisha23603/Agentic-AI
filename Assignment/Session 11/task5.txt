@@ -1,0 +1,45 @@
+prompt: 
+Design a beginner-friendly multi-agent workflow for a Zomato-style restaurant review aggregator.
+
+Requirements:
+
+1. Use at least three AI agents.
+2. Explain the role of each agent.
+3. Explain how data flows from one agent to another.
+4. Show the final output generated for the user.
+
+
+AI Response (Complete Theory)
+Introduction
+
+A multi-agent system is a group of AI agents that work together to complete a task. Each agent has a specific responsibility and passes information to the next agent. Instead of one AI doing everything, multiple specialized agents cooperate to produce better and faster results.
+
+In a Zomato-style restaurant review aggregator, different agents collect reviews, analyze customer opinions, calculate ratings, and generate a final restaurant report for users.
+
+What is a Zomato-Style Restaurant Review Aggregator?
+
+A Zomato-style restaurant review aggregator is an AI system that collects customer reviews from restaurants and analyzes them to help users choose the best restaurant. It reads reviews, understands customer sentiment, calculates ratings, and summarizes the overall feedback.
+
+Goal of the System
+
+Collect restaurant reviews.
+
+Analyze customer opinions.
+
+Calculate restaurant ratings.
+
+Generate an easy-to-read review report.
+
+Help users make restaurant decisions.
+
+Responsibilities
+
+Collect customer reviews.
+
+Collect restaurant names.
+
+Collect star ratings (1–5 stars).
+
+Collect review date and customer comments.
+
+

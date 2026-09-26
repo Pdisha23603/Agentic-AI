@@ -1,0 +1,9 @@
+Task 4 — Stdio Transport vs HTTP Transport
+Difference Table
+Feature	HTTP Transport	stdio Transport
+Communication	HTTP Request/Response	Standard Input & Output
+Network Required	Yes	No
+Runs Across Devices	Yes	Same Local Machine
+Used With	FastAPI, Remote MCP Server	Claude Desktop, VS Code, LangChain
+Speed	Slight network overhead	Very fast local communication
+Best For	Web APIs	Local AI Agents
